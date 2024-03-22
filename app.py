@@ -10,25 +10,15 @@ DB_HOST = "localhost"
 DB_NAME = "Restaurante"
 DB_USER = "postgres"
 DB_PASSWORD = "adm"
-DB_PORT = 5432 
+DB_PORT = "5432"
 
 db_connection = DatabaseConnection(DB_HOST, DB_NAME, DB_USER, DB_PASSWORD, DB_PORT)
 user_manager = UserManager(db_connection)
 reserva_manager = ReservaManager(db_connection)
 
-
-app = Flask(__name__)
-
 @app.route('/')
 def home():
     return 'Bienvenido a la API de ReservaFacil!'
-
-if __name__ == '__main__':
-    app.run(debug=True)
-
-
-
-
 
 @app.route('/crear_usuario', methods=['POST'])
 def crear_usuario_endpoint():
@@ -38,8 +28,6 @@ def crear_usuario_endpoint():
         return jsonify({"mensaje": "Usuario creado exitosamente."}), 200
     except Exception as e:
         return jsonify({"error": str(e)}), 500
-if __name__ == '__main__':
-    app.run(debug=True)
     
 @app.route('/crear_reserva', methods=['POST'])
 def crear_reserva_endpoint():
@@ -50,5 +38,5 @@ def crear_reserva_endpoint():
     except Exception as e:
         return jsonify({"error": str(e)}), 500
 
-if __name__ == '__main__':
+if __name__ == '_main_':
     app.run(debug=True)

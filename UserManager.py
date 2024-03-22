@@ -1,3 +1,4 @@
+from DatabaseConnection import DatabaseConnection
 class UserManager:
     def __init__(self, db_connection):
         self.db_connection = db_connection
@@ -7,7 +8,7 @@ class UserManager:
         if conexion:
             try:
                 cursor = conexion.cursor()
-                # Igual que en ReservaManager, simplificamos la consulta SQL eliminando sql.SQL
+                
                 query = """INSERT INTO usuarios(nombre, apellido, correo, telefono, tipo_usuario, contrasena) 
                            VALUES (%s, %s, %s, %s, %s, %s);"""
                 cursor.execute(query, (nombre, apellido, correo, telefono, tipo_usuario, contrasena))

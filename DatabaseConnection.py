@@ -3,11 +3,11 @@ from psycopg2 import sql
 
 class DatabaseConnection:
     def __init__(self, host, database, user, password, port=5432):
-        self.host = host
-        self.database = database
-        self.user = user
-        self.password = password
-        self.port = port
+        self.host = "localhost"
+        self.database = "Restaurante"
+        self.user = "postgres"
+        self.password = "adm"
+        self.port = "5432"
         self.conexion = None  
 
     def conectar(self):
